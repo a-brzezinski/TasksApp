@@ -1,0 +1,45 @@
+.item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	list-style: none;
+	padding: 1em;
+	margin-top: 3em;
+	box-shadow: 8px 8px 27px -6px rgba(66, 68, 90, 1);
+	border-radius: 15px;
+}
+
+.item:last-child {
+	margin-bottom: 1em;
+}
+
+.text {
+	font-size: 2rem;
+	letter-spacing: 1px;
+}
+
+.wrap {
+	display: flex;
+	gap: 2em;
+	align-items: center;
+}
+
+.important {
+	width: 2em;
+	height: 2em;
+	background-color: tomato;
+	border-radius: 50%;
+}
+.easy {
+	width: 2em;
+	height: 2em;
+	background-color: greenyellow;
+	border-radius: 50%;
+}
+.medium {
+	width: 2em;
+	height: 2em;
+	background-color: gold;
+	border-radius: 50%;
+}
