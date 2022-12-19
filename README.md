@@ -8,7 +8,7 @@ The application was built using:
 - State Management - Redux/Redux Toolkit
 - Styling - CSS Modules
 
-Live Demo available here: 
+Live Demo available here: https://tasksapp-abrzezinski.netlify.app/
 
 ## Getting Started
 
