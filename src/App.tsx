@@ -7,10 +7,11 @@ import { RootState } from './store';
 
 const App = () => {
 	const tasks = useSelector((state: RootState) => state.task.tasks);
+	const tasksLength = tasks.length;
 	return (
 		<Wrapper>
 			<Form />
-			{tasks.length !== 0 ? <TaskList /> : <InfoHeading />}
+			{tasksLength !== Number(0) ? <TaskList /> : <InfoHeading />}
 		</Wrapper>
 	);
 };

@@ -13,7 +13,6 @@ export const Form: React.FC = () => {
 
 	const selectChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setSelectValue(e.target.value);
-		console.log(selectValue);
 	};
 
 	const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +21,7 @@ export const Form: React.FC = () => {
 
 	const formSubmitHandler = (e: React.FormEvent) => {
 		e.preventDefault();
-		if (inputValue.trim('') === '') {
+		if (inputValue.trim() === '') {
 			return;
 		}
 		dispatch(
@@ -39,7 +38,7 @@ export const Form: React.FC = () => {
 		<form onSubmit={formSubmitHandler} className={classes.form}>
 			<Input onChange={inputChangeHandler} value={inputValue} />
 			<Select onChange={selectChangeHandler} />
-			<Button>Add Task</Button>
+			<Button onClick={() => {}}>Add Task</Button>
 		</form>
 	);
 };

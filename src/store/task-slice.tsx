@@ -1,17 +1,31 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// interface taskState {
+// 	tasks: [
+// 		// {
+// 		// 	name: string;
+// 		// 	importance: string;
+// 		// 	id: number;
+// 		// }
+// 	];
+// }
+
 interface taskState {
-	tasks: [
-		{
-			name: string;
-			importance: string;
-			id: number;
-		}
-	];
+	tasks: {
+		name: string;
+		importance: string;
+		id: number;
+	}[];
 }
 
 const initialState: taskState = {
-	tasks: [],
+	tasks: [
+		{
+			name: 'Your First Task! Delete this task :)',
+			importance: 'easy',
+			id: 1,
+		},
+	],
 };
 
 const taskSlice = createSlice({
@@ -24,8 +38,8 @@ const taskSlice = createSlice({
 		},
 		removeTask(state, action) {
 			const id = action.payload;
-			const existingItem = state.tasks.find(item => item.id === id);
-			if (existingItem?.id === id) {
+			const existingItem = state.tasks.find(item => item.id === id)!;
+			if (existingItem.id === id) {
 				state.tasks = state.tasks.filter(item => item.id !== id);
 			}
 		},

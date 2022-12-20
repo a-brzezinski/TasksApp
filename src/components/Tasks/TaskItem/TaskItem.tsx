@@ -13,7 +13,6 @@ export const TaskItem: React.FC<{
 	const dispatch = useDispatch();
 	const taskDoneHandler = () => {
 		dispatch(taskActions.removeTask(id));
-		console.log('eee');
 	};
 
 	return (
