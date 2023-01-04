@@ -2,6 +2,8 @@
 
 An application used to manage your tasks.
 
+Application uses Firebase to store data(PUT and GET).
+
 The application was built using:
 
 - Main Tech - React + TypeScript
