@@ -9,13 +9,7 @@ interface taskState {
 }
 
 const initialState: taskState = {
-	tasks: [
-		{
-			name: 'Your First Task! Delete this task :)',
-			importance: 'easy',
-			id: 1,
-		},
-	],
+	tasks: []
 };
 
 const taskSlice = createSlice({

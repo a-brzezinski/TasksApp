@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './store';
 import { useEffect } from 'react';
 import { fetchTasks, sendTaskData } from './store/task-actions';
+import ErrorModal from './components/UI/ErrorModal/ErrorModal';
 
 const App = () => {
 	const tasks = useSelector((state: RootState) => state.task.tasks);
+	const notification = useSelector((state: RootState) => state.ui.notification); 
 	const dispatch = useDispatch();
 	const tasksLength = tasks.length;
 
@@ -22,6 +24,7 @@ const App = () => {
 
 	return (
 		<Wrapper>
+			{notification && <ErrorModal/>}
 			<Form />
 			{tasksLength !== Number(0) ? <TaskList /> : <InfoHeading />}
 		</Wrapper>

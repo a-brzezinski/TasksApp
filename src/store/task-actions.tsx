@@ -1,5 +1,5 @@
-import { ThunkAction } from '@reduxjs/toolkit';
 import { taskActions } from './task-slice';
+import { uiActions } from './ui-slice';
 
 export const fetchTasks = (): any => {
 	return async (dispatch: any) => {
@@ -8,6 +8,8 @@ export const fetchTasks = (): any => {
 				'https://tasksapp-e72c2-default-rtdb.europe-west1.firebasedatabase.app/tasks.json'
 			);
 
+			if (!response.ok) throw new Error('Could not fetch data!');
+
 			const data = await response.json();
 
 			return data;
@@ -15,13 +17,20 @@ export const fetchTasks = (): any => {
 
 		try {
 			const tasksData = await fetchData();
-			dispatch(taskActions.replaceTasks(tasksData));
-		} catch {}
+			dispatch(taskActions.replaceTasks(tasksData || []));
+		} catch(error) {
+			dispatch(
+				uiActions.showError({
+					title: 'Error',
+					message: 'Could not fetch data!',
+				})
+			);
+		}
 	};
 };
 
 export const sendTaskData = (tasks: {}[]): any => {
-	return async () => {
+	return async (dispatch: any) => {
 		const sendRequest = async () => {
 			const response = await fetch(
 				'https://tasksapp-e72c2-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
@@ -33,6 +42,13 @@ export const sendTaskData = (tasks: {}[]): any => {
 		};
 		try {
 			await sendRequest();
-		} catch {}
+		} catch(error) {
+      dispatch(
+				uiActions.showError({
+					title: 'Error',
+					message: 'Something went wrong',
+				})
+			);
+    }
 	};
 };
