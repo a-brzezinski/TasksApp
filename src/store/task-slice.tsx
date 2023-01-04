@@ -1,15 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// interface taskState {
-// 	tasks: [
-// 		// {
-// 		// 	name: string;
-// 		// 	importance: string;
-// 		// 	id: number;
-// 		// }
-// 	];
-// }
-
 interface taskState {
 	tasks: {
 		name: string;
@@ -43,6 +33,9 @@ const taskSlice = createSlice({
 				state.tasks = state.tasks.filter(item => item.id !== id);
 			}
 		},
+		replaceTasks(state,action){
+			state.tasks = action.payload
+		}
 	},
 });
 export const taskActions = taskSlice.actions;
