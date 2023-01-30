@@ -5,7 +5,7 @@ export const fetchTasks = (): any => {
 	return async (dispatch: any) => {
 		const fetchData = async () => {
 			const response = await fetch(
-				'https://tasksapp-e72c2-default-rtdb.europe-west1.firebasedatabase.app/tasks.json'
+				'https://tasks-9806f-default-rtdb.europe-west1.firebasedatabase.app/tasks.json'
 			);
 
 			if (!response.ok) throw new Error('Could not fetch data!');
@@ -18,7 +18,7 @@ export const fetchTasks = (): any => {
 		try {
 			const tasksData = await fetchData();
 			dispatch(taskActions.replaceTasks(tasksData || []));
-		} catch(error) {
+		} catch (error) {
 			dispatch(
 				uiActions.showError({
 					title: 'Error',
@@ -33,7 +33,7 @@ export const sendTaskData = (tasks: {}[]): any => {
 	return async (dispatch: any) => {
 		const sendRequest = async () => {
 			const response = await fetch(
-				'https://tasksapp-e72c2-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
+				'https://tasks-9806f-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
 				{
 					method: 'PUT',
 					body: JSON.stringify(tasks),
@@ -42,13 +42,13 @@ export const sendTaskData = (tasks: {}[]): any => {
 		};
 		try {
 			await sendRequest();
-		} catch(error) {
-      dispatch(
+		} catch (error) {
+			dispatch(
 				uiActions.showError({
 					title: 'Error',
 					message: 'Something went wrong',
 				})
 			);
-    }
+		}
 	};
 };
