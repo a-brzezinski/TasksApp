@@ -2,15 +2,28 @@
 
 An application used to manage your tasks.
 
+[Live Demo](https://tasksapp-abrzezinski.netlify.app/)
+
 Application uses Firebase to store data(PUT and GET).
 
 The application was built using:
 
-- Main Tech - React + TypeScript
-- State Management - Redux/Redux Toolkit
-- Styling - CSS Modules
+## Backend
 
-Live Demo available here: https://tasksapp-abrzezinski.netlify.app/
+- Firebase
+
+## Frontend
+
+- React
+- TypeScript
+- CSS Modules
+
+## Tools
+
+- Redux Toolkit
+- Vite
+- Redux Toolkit
+
 
 ## Getting Started
 
