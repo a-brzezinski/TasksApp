@@ -22,7 +22,6 @@ The application was built using:
 
 - Redux Toolkit
 - Vite
-- Redux Toolkit
 
 
 ## Getting Started
