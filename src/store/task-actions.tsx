@@ -33,7 +33,7 @@ export const sendTaskData = (tasks: {}[]): any => {
 	return async (dispatch: any) => {
 		const sendRequest = async () => {
 			const response = await fetch(
-				'https://tasks-9806f-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
+				'https://tasksapp-b2a02-default-rtdb.europe-west1.firebasedatabase.app/tasks.json',
 				{
 					method: 'PUT',
 					body: JSON.stringify(tasks),
